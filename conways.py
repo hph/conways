@@ -7,8 +7,8 @@ from sys import version_info
 from time import sleep, time
 
 
-if version_info.major == 3:
-    xrange = range
+if version_info.major == 2:
+    range = xrange
 
 
 class Colony(object):
@@ -20,8 +20,8 @@ class Colony(object):
         self.index = 0
         self.thrives = True
         self.colony = [[1 if random() < args.chance else 0
-                        for _ in xrange(self.width)]
-                       for _ in xrange(self.height)]
+                        for _ in range(self.width)]
+                       for _ in range(self.height)]
 
     def __str__(self):
         if not self.no_clear:
@@ -33,15 +33,15 @@ class Colony(object):
     def neighbors(self, coord):
         """Return the number of cells in the Moore neighborhood of the cell at
         the specified coordinate."""
-        moore_coords = [(coord[0] + y, coord[1] + x) for x in xrange(-1, 2)
-                        for y in xrange(-1, 2) if not y == x == 0]
+        moore_coords = [(coord[0] + y, coord[1] + x) for x in range(-1, 2)
+                        for y in range(-1, 2) if not y == x == 0]
         return sum([self.colony[y][x] for y, x in moore_coords
                     if all([y >= 0, x >= 0, y < self.height, x < self.width])])
 
     def generate(self):
         """Apply the four rules of Conway's Game of Life to the colony."""
         self.index += 1
-        new_colony = [[0 for _ in xrange(self.width)] for row in self.colony]
+        new_colony = [[0 for _ in range(self.width)] for row in self.colony]
         neighs = [[self.neighbors((x, y)) for y, _ in enumerate(row)]
                   for x, row in enumerate(self.colony)]
         for y, row in enumerate(new_colony):
