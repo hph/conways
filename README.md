@@ -4,6 +4,11 @@ conways
 A command-line implementation of Conway's Game of Life. Tested on Python 2.7.3
 and Python 3.2.3.
 
+Examples
+--------
+* [Screenshot](http://i.imgur.com/8G53a1o.jpg)
+* [Video](http://www.youtube.com/watch?v=MK-_l4czzuU)
+
 Setup
 -----
 
