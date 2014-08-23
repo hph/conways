@@ -88,12 +88,10 @@ def _process_args():
 
 
 def main():
-    args = _process_args()
-    colony = Colony(args)
     try:
-        colony.run()
+        Colony(_process_args()).run()
     except KeyboardInterrupt:
-        exit()
+        pass
 
 
 if __name__ == '__main__':
