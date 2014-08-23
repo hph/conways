@@ -17,7 +17,7 @@ class Colony(object):
         self.height = args.height
         self.fps = args.fps
         self.no_clear = args.no_clear
-        self.index = 0
+        self.generation = 0
         self.thrives = True
         self.colony = [[1 if random() < args.chance else 0
                         for _ in range(self.width)]
@@ -28,7 +28,7 @@ class Colony(object):
             system('clear')
         lines = [' '.join(['O' if cell else ' ' for cell in cell_row])
                  for cell_row in self.colony]
-        return '\n'.join(['Generation {0}\n'.format(self.index)] + lines)
+        return '\n'.join(['Generation {0}\n'.format(self.generation)] + lines)
 
     def neighbors(self, coord):
         """Return the number of cells in the Moore neighborhood of the cell at
@@ -40,7 +40,7 @@ class Colony(object):
 
     def generate(self):
         """Apply the four rules of Conway's Game of Life to the colony."""
-        self.index += 1
+        self.generation += 1
         new_colony = [[0 for _ in range(self.width)] for row in self.colony]
         neighs = [[self.neighbors((x, y)) for y, _ in enumerate(row)]
                   for x, row in enumerate(self.colony)]
