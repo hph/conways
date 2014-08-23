@@ -1,8 +1,8 @@
 conways
 =======
 
-A command-line implementation of Conway's Game of Life. Tested on Python 2.7.3
-and Python 3.2.3.
+A command-line implementation of Conway's Game of Life. Tested with Python
+2.7.3 and Python 3.2.3.
 
 Examples
 --------
@@ -12,14 +12,14 @@ Examples
 Setup
 -----
 
-    git clone git://github.com/hph/conways.git
-    cd conways
-    sudo cp conways.py /usr/local/bin/conways
+    git clone git://github.com/hph/conways.git && cd conways
+    cp conways.py /usr/local/bin/conways
+    chmod +x /usr/local/bin/conways
 
 Usage
 -----
-Simply run `conways` to execute the program with the default options. For full
-list of options run `conways -h`:
+Simply run `conways` to execute the program with the default options. For a
+full list of options run `conways -h`:
 
     usage: conway [-h] [--width WIDTH] [--height HEIGHT] [--chance CHANCE]
                   [--fps FPS] [--no-clear]
